@@ -1,18 +1,11 @@
 import express from "express";
+import "./database";
+import { routes } from "./routes";
 
 const app = express();
 
-app.get("/", (request, response) => {
-    return response.json({
-        message: "Iae json"
-    });
-});
+app.use(express.json());
 
-app.post("/", (request, response) => {
-    return response.json({
-        message: "Dale post"
-    });
-});
+app.use(routes);
 
-
-app.listen(8888, () => console.log("Server rodando na 3333"));
+app.listen(8888, () => console.log("Server rodando na 8888"));
